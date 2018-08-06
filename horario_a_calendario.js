@@ -57,7 +57,6 @@ javascript: (function() {
             blob = new Blob([data], {
                 type: t
             });
-        console.log(data);
         var filenameSuffix = "";
         var currentDate = new Date();
         if (currentDate.getMonth() >= 6 && currentDate.getMonth() < 12) {
@@ -72,8 +71,6 @@ javascript: (function() {
         anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
         anchor.dataset.downloadurl = ['text/calendar', anchor.download, anchor.href].join(':');
         anchor.click();
-        //url = window.URL.createObjectURL(e);
-        //window.location.href = url
     }
     String.prototype.format || (String.prototype.format = function() {
         var t = arguments;
@@ -86,7 +83,8 @@ javascript: (function() {
     var owaBeta = "mdpzkPPkhj9STdSHzJxnr";
     var weirdGmail1 = ".ii.gt.adP.adO";
     var weirdGmail2 = ".nH.aNW.apk.nn";
-    var msgBodyVar = document.getElementById("Item.MessageNormalizedBody") || document.querySelector(owaOld) || document.querySelector(owaOffice) || document.querySelector(owaBeta) || document.querySelector(weirdGmail1) || document.querySelector(weirdGmail2);
+    var weirdGmail3 = ".bk";
+    var msgBodyVar = document.getElementById("Item.MessageNormalizedBody") || document.querySelector(owaOld) || document.querySelector(owaOffice) || document.querySelector(owaBeta) || document.querySelector(weirdGmail1) || document.querySelector(weirdGmail2) || document.querySelector(weirdGmail3) || document;
     for (var dayseng = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"], data = "BEGIN:VCALENDAR\nPRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VTIMEZONE\nTZID:Central Standard Time\nBEGIN:STANDARD\nDTSTART:16011104T020000\nRRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11\nTZOFFSETFROM:-0500\nTZOFFSETTO:-0600\nEND:STANDARD\nBEGIN:DAYLIGHT\nDTSTART:16010311T020000\nRRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\nTZOFFSETFROM:-0600\nTZOFFSETTO:-0500\nEND:DAYLIGHT\nEND:VTIMEZONE\n", classTmpl = "BEGIN:VEVENT\nCLASS:PUBLIC\nCREATED:{0}\nUID:{0}-1234{7}@itesm.mx\nDESCRIPTION: Horario de Clases\\n\nDTSTART;TZID=\"Central Standard Time\":{1}\nDTEND;TZID=\"Central Standard Time\":{2}\nDTSTAMP:{0}\nLOCATION:{3}\nRRULE:FREQ=WEEKLY;UNTIL={4};BYDAY={5}\nSEQUENCE:0\nSUMMARY;LANGUAGE=es-mx:{6}\nTRANSP:OPAQUE\nEND:VEVENT\n", msgBody = msgBodyVar, t1 = msgBody.querySelectorAll("center")[2], tableDesc = t1.querySelectorAll("table")[1], tbody = tableDesc.children[0], trs = tbody.children, subjectRows = tbody.querySelectorAll("tr[bgcolor=\"#9bbad6\"]"), subjects = [], i = 0; i < subjectRows.length; i++) subjects.push({
         name: subjectRows[i].children[1].querySelector("code").textContent.trim(),
         details: getDetails(subjectRows[i])
