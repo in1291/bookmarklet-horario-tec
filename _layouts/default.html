@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "es-MX" }}">
+  <head>
+    <meta charset="UTF-8">
+
+{% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+
+    <header class="page-header" role="banner">
+      <h2 class="project-tagline">Arrastra este botón al "bookmarks bar" y dale click cuando tengas el correo del horario abierto.</h2>
+      <a href="horario_a_calendario.js" class="btn" >Convertir Horario a Calendario</a>
+
+    </header>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57705003-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-57705003-3');
+    </script>
+  </body>
+</html>
