@@ -84,7 +84,7 @@
         anchor = document.createElement("a");
         anchor.download = "Horario Tec " + filenameSuffix + ".ics";
         anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
-        anchor.dataset.downloadurl = ["text/calendar", anchor.download, anchor.href].join(":"");
+        anchor.dataset.downloadurl = ["text/calendar", anchor.download, anchor.href].join(":");
         anchor.click();
     }
     String.prototype.format || (String.prototype.format = function() {
